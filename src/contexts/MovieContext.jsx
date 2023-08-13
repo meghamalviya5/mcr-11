@@ -21,6 +21,18 @@ const MoviesProvider = ({ children }) => {
     watchlist: localStorage.getItem("WatchList")
       ? JSON.parse(localStorage.getItem("WatchList"))
       : [],
+    newProduct: {
+      id: "",
+      title: "",
+      year: "",
+      rating: 0,
+      director: "",
+      writer: "",
+      cast: "",
+      genre: "",
+      summary: "",
+      imageURL: "",
+    },
   };
 
   const [state, dispatch] = useReducer(movieReducer, initialState);
@@ -131,7 +143,31 @@ const MoviesProvider = ({ children }) => {
 
   const addMovie = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const maxId = state.movies.reduce(
+      (acc, inventory) => (inventory.id > acc ? inventory.id : acc),
+      0
+    );
+
+    state.newMovie = { ...state.newMovie, id: maxId + 1 };
+
+    const updatedMovies = [...state.movies, state.newMovie];
+
+    // if (!localStorage.getItem("InvertoryData")) {
+    localStorage.setItem("Movies", JSON.stringify(updatedMovies));
+    // }
+
+    // state.newMovie = {
+    //   id: "",
+    //   name: "",
+    //   description: "",
+    //   price: 0,
+    //   stock: 0,
+    //   sku: "",
+    //   supplier: "",
+    //   delivered: 0,
+    //   imageUrl: "",
+    // };
+    //dispatch({ type: "ADD_NEW_PRODUCT", payload: updatedInventoryData });
   };
 
   const valueProps = {

@@ -3,7 +3,11 @@ import { MoviesContext } from "../../contexts/MovieContext";
 
 const AddMovie = () => {
   // title, summary, year, cast, genre, rating, director, writer and imageURL
-  const { state, dispatch, addMovie } = useContext(MoviesContext);
+  const {
+    state: { newMovie },
+    dispatch,
+    addMovie,
+  } = useContext(MoviesContext);
 
   const ratings = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let releaseYear = [];
