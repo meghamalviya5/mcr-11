@@ -15,5 +15,14 @@ export const movieReducer = (state, action) => {
 
     default:
       return { state };
+
+    case "UPDATE_FORM_DATA":
+      return {
+        ...state,
+        newMovie: {
+          ...state.newMovie,
+          [action.payload.key]: action.payload.value,
+        },
+      };
   }
 };
