@@ -22,7 +22,7 @@ const AddMovie = () => {
       <h3>Add New Movie</h3>
       <form onSubmit={(e) => addMovie(e)}>
         <div>
-          <label htmlFor="year">Department:</label>
+          <label htmlFor="year">Year:</label>
           <select
             id="year"
             name="year"
@@ -41,7 +41,7 @@ const AddMovie = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="rating">Department:</label>
+          <label htmlFor="rating">Rating:</label>
           <select
             id="rating"
             name="rating"

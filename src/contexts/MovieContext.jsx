@@ -21,7 +21,7 @@ const MoviesProvider = ({ children }) => {
     watchlist: localStorage.getItem("WatchList")
       ? JSON.parse(localStorage.getItem("WatchList"))
       : [],
-    newProduct: {
+    newMovie: {
       id: "",
       title: "",
       year: "",
