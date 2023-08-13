@@ -8,6 +8,7 @@ import StarredMovies from "./pages/StarredMovies/StarredMovies";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
 import NavBar from "./components/NavBar/NavBar";
 import "./styles.css";
+import AddMovie from "./pages/AddMovie/AddMovie";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/watchlist" element={<WatchList />} />
           <Route path="/starred-movies" element={<StarredMovies />} />
           <Route path="/movie-details/:movieId" element={<MovieDetails />} />
+          <Route path="/add-movie" element={<AddMovie />} />
         </Route>
       </Routes>
     </div>

@@ -18,12 +18,15 @@ const AddMovie = () => {
       <h3>Add New Movie</h3>
       <form onSubmit={(e) => addMovie(e)}>
         <div>
-          <label htmlFor="dept">Department:</label>
+          <label htmlFor="year">Department:</label>
           <select
+            id="year"
+            name="year"
+            value={newMovie.year}
             onChange={(e) =>
               dispatch({
-                type: "UPDATE_FILTERS",
-                payload: { key: "filterByYear", value: e.target.value },
+                type: "UPDATE_FORM_DATA",
+                payload: { key: "year", value: e.target.value },
               })
             }
           >
@@ -32,19 +35,9 @@ const AddMovie = () => {
               <option>{year}</option>
             ))}
           </select>
-          <select
-            onChange={(e) =>
-              dispatch({
-                type: "UPDATE_FILTERS",
-                payload: { key: "filterByRating", value: e.target.value },
-              })
-            }
-          >
-            <option value="0">Rating</option>
-            {ratings.map((rating) => (
-              <option>{rating}</option>
-            ))}
-          </select>
+        </div>
+        <div>
+          <label htmlFor="rating">Department:</label>
           <select
             id="rating"
             name="rating"
@@ -94,68 +87,64 @@ const AddMovie = () => {
           />
         </div>
         <div>
-          <label htmlFor="price">Price:</label>
+          <label htmlFor="genre">Genre:</label>
           <input
             type="text"
-            id="price"
-            name="price"
-            value={newMovie.price}
+            id="genre"
+            name="genre"
+            value={newMovie.genre}
             onChange={(e) =>
               dispatch({
                 type: "UPDATE_FORM_DATA",
-                payload: { key: "price", value: e.target.value },
+                payload: { key: "genre", value: e.target.value },
               })
             }
           />
         </div>
         <div>
-          <label htmlFor="stock">Stock:</label>
+          <label htmlFor="cast">Cast:</label>
           <input
             type="text"
-            id="stock"
-            name="stock"
-            value={newMovie.stock}
+            id="cast"
+            name="cast"
+            value={newMovie.cast}
             onChange={(e) =>
               dispatch({
                 type: "UPDATE_FORM_DATA",
-                payload: { key: "stock", value: e.target.value },
+                payload: { key: "cast", value: e.target.value },
               })
             }
           />
         </div>
         <div>
-          <label htmlFor="sku">SKU:</label>
+          <label htmlFor="writer">Writer:</label>
           <input
             type="text"
-            id="sku"
-            name="sku"
-            value={newMovie.sku}
+            id="writer"
+            name="writer"
+            value={newMovie.writer}
             onChange={(e) =>
               dispatch({
                 type: "UPDATE_FORM_DATA",
-                payload: { key: "sku", value: e.target.value },
+                payload: { key: "writer", value: e.target.value },
               })
             }
           />
         </div>
         <div>
-          <label htmlFor="supplier">Supplier:</label>
+          <label htmlFor="director">Director:</label>
           <input
             type="text"
-            id="supplier"
-            name="supplier"
-            value={newMovie.supplier}
+            id="director"
+            name="director"
+            value={newMovie.director}
             onChange={(e) =>
               dispatch({
                 type: "UPDATE_FORM_DATA",
-                payload: { key: "supplier", value: e.target.value },
+                payload: { key: "director", value: e.target.value },
               })
             }
           />
-        </div>
-        <div>
-          <label htmlFor="delivered">Delivered:</label>
-          <input type="text" id="delivered" name="delivered" value={0} />
         </div>
         <div>
           <label htmlFor="imageUrl">Image URL:</label>
@@ -173,7 +162,7 @@ const AddMovie = () => {
           />
         </div>
         <button className="btn p-s" type="submit">
-          Add Product
+          Add Movie
         </button>
       </form>
     </div>
